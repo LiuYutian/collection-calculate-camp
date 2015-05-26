@@ -1,8 +1,9 @@
 'use strict';
 
 function choose_no_repeat_number(collection) {
+    var _ = require('../lodash/array');
 
-  //在这里写入代码
+    return _.union(collection);
 }
 
 module.exports = choose_no_repeat_number;
