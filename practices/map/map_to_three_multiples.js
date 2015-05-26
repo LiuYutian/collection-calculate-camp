@@ -2,10 +2,10 @@
 var map_to_three_multiples = function(collections){
     var _ = require('../lodash/collection');
 
-    return _.map(collections, timesThree);
+    return _.map(collections, TimesThree);
 };
 
-function timesThree(n) {
+function TimesThree(n) {
     return n * 3;
 }
 

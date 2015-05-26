@@ -2,10 +2,10 @@
 function map_to_even(collection){
   var _ = require('../lodash/collection');
 
-  return _.map(collection, timesTwo);
+  return _.map(collection, TimesTwo);
 }
 
-function timesTwo(n) {
+function TimesTwo(n) {
     return n * 2;
 }
 
