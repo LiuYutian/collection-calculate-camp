@@ -1,8 +1,9 @@
 'use strict';
 
 function grouping_count(collection) {
+    var _ = require('../lodash/collection');
 
-  //在这里写入代码
+    return _.countBy(collection);
 }
 
 module.exports = grouping_count;
