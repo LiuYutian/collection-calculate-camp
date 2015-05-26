@@ -1,10 +1,11 @@
 'use strict';
 var map_to_four_multiples_add_one = function(collection){
     var _ = require('../lodash/collection');
-  return _.map(collection, timesFour);
+
+    return _.map(collection, timesFourAddOne);
 };
 
-function timesFour(n) {
+function timesFourAddOne(n) {
     return n*4+1;
 }
 
