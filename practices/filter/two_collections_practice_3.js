@@ -1,14 +1,14 @@
 'use strict';
 
 function choose_divisible_integer(collection_a, collection_b) {
-    var _ = require('../lodash/lodash');
-
     var array = [];
 
-    for(var i = 0; i < collection_b; i++) {
-        array.push(_.findLast(collction_a, function(n) {
-            return n % collection_b[i] == 0;
-        }))
+    for(var i = 0; i < collection_a.length; i++) {
+        for(var j = 0; j < collection_b.length; j++) {
+            if(collection_a[i] % collection_b[j] === 0) {
+                array.push(collection_a[i]);
+            }
+        }
     }
 
     return array;
