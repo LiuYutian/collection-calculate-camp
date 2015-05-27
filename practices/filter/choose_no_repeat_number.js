@@ -2,9 +2,16 @@
 
 function choose_no_repeat_number(collection) {
     var array = [];
-    
+
     for(var i = 0; i < collection.length; i++) {
-        if(collection[i] != collection[i+1]) {
+        var exist = false;
+
+        for(var j = 0; j < array.length; j++) {
+            if(collection[i] === array[j]) {
+                exist = true;
+            }
+        }
+        if(!exist) {
             array[array.length] = collection[i];
         }
     }
