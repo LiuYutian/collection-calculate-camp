@@ -1,9 +1,6 @@
 'use strict';
 
 function get_intersection(collection_a, collection_b) {
-    // var _ = require('../lodash/array');
-    // return _.intersection(collection_b, collection_a);
-
     var array = [];
 
     for(var i = 0; i < collection_b.length; i++) {
@@ -16,5 +13,7 @@ function get_intersection(collection_a, collection_b) {
 
     return array;
 }
+
+
 
 module.exports = get_intersection;
