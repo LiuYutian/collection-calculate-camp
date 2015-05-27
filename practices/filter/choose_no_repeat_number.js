@@ -9,6 +9,7 @@ function choose_no_repeat_number(collection) {
         for(var j = 0; j < array.length; j++) {
             if(collection[i] === array[j]) {
                 exist = true;
+                break;
             }
         }
         if(!exist) {
