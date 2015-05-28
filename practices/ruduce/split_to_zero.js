@@ -1,7 +1,17 @@
 'use strict';
 
-function collect_max_number(number) {
-  //在这里写入代码
+function spilt_to_zero(number, interval) {
+    var array = [];
+    var length = (interval+"").length;
+
+    array[array.length] = number;
+
+    while(number>0) {
+        number = Number((number-interval).toFixed(length));
+        array[array.length] = number;
+    }
+
+    return array;
 }
 
-module.exports = collect_max_number;
+module.exports = spilt_to_zero;
