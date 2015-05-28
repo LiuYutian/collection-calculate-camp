@@ -1,12 +1,12 @@
 'use strict';
 var map_to_three_multiples = function(collections){
-    var _ = require('../lodash/collection');
+    var array = [];
 
-    return _.map(collections, TimesThree);
-};
+    for (var i = 0; i < collections.length; i++) {
+        array[array.length] = collections[i] * 3;
+    }
 
-function TimesThree(n) {
-    return n * 3;
+    return array;
 }
 
 module.exports = map_to_three_multiples;
