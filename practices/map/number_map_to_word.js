@@ -1,8 +1,12 @@
 'use strict';
 var number_map_to_word = function(collection){
-    var _ = require('../lodash/collection');
+    var array = [];
 
-    return _.map(collection, MapChar);
+    for(var i = 0; i < collection.length; i++) {
+        array[array.length] = MapChar(collection[i]);
+    }
+
+    return array;
 };
 
 function MapChar(n) {
