@@ -1,12 +1,12 @@
 'use strict';
 function map_to_even(collection){
-  var _ = require('../lodash/collection');
+    var array = [];
 
-  return _.map(collection, TimesTwo);
-}
+    for(var i = 0; i < collection.length; i++) {
+        array[array.length] = collection[i] * 2;
+    }
 
-function TimesTwo(n) {
-    return n * 2;
+    return array;
 }
 
 module.exports = map_to_even;
