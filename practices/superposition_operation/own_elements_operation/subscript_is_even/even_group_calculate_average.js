@@ -7,7 +7,7 @@ var even_group_calculate_average = function(collection){
         if(array[collection[i].toString().length-1] === undefined){
             array[collection[i].toString().length-1] = new Array();
         }
-        if(collection[i] % 2 === 0) {
+        if(collection[i] % 2 === 0 && i % 2 != 0) {
             array[collection[i].toString().length-1].push(collection[i]);
         }
     }
@@ -34,6 +34,6 @@ var even_group_calculate_average = function(collection){
         }
     }
 
-    return 0;
+    return [0];
 };
 module.exports = even_group_calculate_average;
