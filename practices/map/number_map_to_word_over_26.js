@@ -1,12 +1,10 @@
 'use strict';
 var number_map_to_word_over_26 = function(collection){
-    var array = [];
+    var _ = require('../../myLodash.js');
 
-    for(var i = 0; i < collection.length; i++) {
-        array[array.length] = MapChar(collection[i]);
-    }
-
-    return array;
+    return _.map(collection, function(n){
+        return MapChar(n);
+    });
 };
 
 function MapChar(n) {
