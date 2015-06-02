@@ -1,12 +1,10 @@
 'use strict';
 var map_to_four_multiples_add_one = function(collection){
-    var array = [];
+    var _ = require('../../myLodash.js');
 
-    for(var i = 0; i < collection.length; i++) {
-        array[array.length] = collection[i] * 4 + 1;
-    }
-
-    return array;
+    return _.map(collection, function(n){
+        return n * 4 + 1;
+    });
 }
 
 module.exports = map_to_four_multiples_add_one;
