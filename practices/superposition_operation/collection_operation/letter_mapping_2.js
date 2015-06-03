@@ -1,11 +1,11 @@
 'use strict';
 
 function average_to_letter(collection) {
-    var sum = 0;
+    var _ = require('../../../myLodash.js');
 
-    for(var i = 0; i < collection.length; i++) {
-        sum += collection[i];
-    }
+    var sum = _.reduce(collection, function(a, b){
+        return a + b;
+    });
 
     return String.fromCharCode(Math.ceil(sum/collection.length)+96);
 }
