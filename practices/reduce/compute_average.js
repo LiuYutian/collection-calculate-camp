@@ -1,11 +1,11 @@
 'use strict';
 
 function compute_average(collection) {
-    var sum = 0;
+    var _ = require('../../myLodash.js');
 
-    for(var i = 0; i < collection.length; i++) {
-        sum += collection[i];
-    }
+    var sum = _.reduce(collection, function(a, b){
+        return a + b;
+    });
 
     return  sum / collection.length;
 }
