@@ -1,15 +1,11 @@
 'use strict';
 
 function collect_max_number(collection) {
-    var max = collection[0];
+    var _ = require('../../myLodash.js');
 
-    for(var i = 1; i < collection.length; i++) {
-        if(max < collection[i]) {
-            max = collection[i];
-        }
-    }
-
-    return max;
+    return _.reduce(collection, function(a, b){
+        return Math.max(a,b);
+    });
 }
 
 module.exports = collect_max_number;
