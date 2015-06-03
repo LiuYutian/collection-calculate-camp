@@ -1,15 +1,17 @@
 'use strict';
 
 function even_to_letter(collection) {
-    var array = [];
+    var _ = require('../../../myLodash.js');
 
-    for(var i = 0; i < collection.length; i++) {
-        if(collection[i] % 2 === 0){
-            array[array.length] = String.fromCharCode(collection[i]+96);
+    var array = _.filter(collection, function(n){
+        return n % 2 === 0;
+    });
+
+    return _.map(array, function(n){
+        if(n % 2 === 0) {
+            return String.fromCharCode(n+96);
         }
-    }
-    
-    return array;
+     });
 }
 
 module.exports = even_to_letter;
