@@ -8,9 +8,7 @@ function even_to_letter(collection) {
     });
 
     return _.map(array, function(n){
-        if(n % 2 === 0) {
-            return String.fromCharCode(n+96);
-        }
+        return String.fromCharCode(n+96);
      });
 }
 
