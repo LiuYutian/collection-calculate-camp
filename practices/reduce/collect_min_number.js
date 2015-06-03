@@ -1,15 +1,11 @@
 'use strict';
 
 function collect_min_number(collection) {
-    var min = collection[0];
+    var _ = require('../../myLodash.js');
 
-    for(var i = 1; i < collection.length; i++) {
-        if(min > collection[i]) {
-            min = collection[i];
-        }
-    }
-
-    return min;
+    return _.reduce(collection, function(a, b){
+        return Math.min(a, b);
+    });
 }
 
 module.exports = collect_min_number;
