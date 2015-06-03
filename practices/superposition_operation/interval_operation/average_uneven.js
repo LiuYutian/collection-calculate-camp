@@ -1,17 +1,17 @@
 'use strict';
 
 function average_uneven(collection) {
-    var sum = 0;
-    var count = 0;
+    var _ = require('../../../myLodash.js');
 
-    for(var i = 0; i < collection.length; i++) {
-        if(collection[i] % 2 != 0) {
-            sum += collection[i];
-            count++;
-        }
-    }
+    var array = _.filter(collection, function(n){
+        return n % 2 != 0;
+    });
 
-    return sum/count;
+    var sum = _.reduce(array, function(a, b){
+        return a + b;
+    });
+
+    return sum / array.length;
 }
 
 module.exports = average_uneven;
