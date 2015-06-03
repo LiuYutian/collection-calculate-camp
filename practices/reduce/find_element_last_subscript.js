@@ -1,11 +1,16 @@
 'use strict';
 
 function calculate_elements_sum(collection, element) {
-    for(var i = collection.length - 1; i >= 0; i--) {
-        if(collection[i] === element) {
-            return i;
+    var _ = require('../../myLodash.js');
+    var result = -1;
+
+    _.each(collection, function(n, i){
+        if(n === element) {
+            result = i;
         }
-    }
+    });
+
+    return result;
 }
 
 module.exports = calculate_elements_sum;
