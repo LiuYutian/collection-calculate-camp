@@ -1,13 +1,15 @@
 'use strict';
 
 function hybrid_operation(collection) {
-    var sum = 0;
+    var _ = require('../../../myLodash.js');
 
-    for(var i = 0; i < collection.length; i++) {
-        sum += collection[i] * 3 + 2;
-    }
+    var array = _.map(collection, function(n){
+        return n*3+2;
+    });
 
-    return sum;
+    return _.reduce(array, function(a,b){
+        return a + b;
+    });
 }
 
 module.exports = hybrid_operation;
