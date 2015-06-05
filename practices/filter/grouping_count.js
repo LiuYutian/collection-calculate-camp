@@ -1,13 +1,14 @@
 'use strict';
 
 function grouping_count(collection) {
+    var _ = require('../../myLodash.js');
     var object = {};
 
-    for(var i = 0; i < collection.length; i++) {
-        object[collection[i]] = object[collection[i]] || 0;
-        object[collection[i]]++;
-    }
-
+    _.each(collection, function(n){
+        object[n] = object[n] || 0;
+        object[n]++;
+    });
+    
     return object;
 }
 
