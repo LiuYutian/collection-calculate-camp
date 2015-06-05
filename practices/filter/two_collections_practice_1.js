@@ -1,17 +1,9 @@
 'use strict';
 
 function choose_common_elements(collection_a, collection_b) {
-    var array = [];
+    var _ = require('../../myLodash.js');
 
-    for (var i = 0; i < collection_a.length; i++) {
-        for (var j = 0; j < collection_b.length; j++) {
-            if(collection_b[j] === collection_a[i]) {
-                array[array.length] = collection_a[i];
-            }
-        }
-    }
-
-    return array;
+    return _.intersection(collection_a, collection_b);
 }
 
 module.exports = choose_common_elements;
