@@ -1,26 +1,22 @@
 'use strict';
 
 function choose_no_common_elements(collection_a, collection_b) {
-    var result = {};
-    var array = [];
+    var _ = require('../../myLodash.js');
+    var result = [];
 
-    for(var i = 0; i <collection_b.length;i++) {
-        collection_a.push(collection_b[i]);
-    }
-
-    for(var i=0; i<collection_a.length; i++) {
-        result[[collection_a[i]]] = result[[collection_a[i]]]||0;
-        result[collection_a[i]]++;
-    }
-
-    for(var key in result) {
-        if(result[key] === 1) {
-            array[array.length] = key;
+    _.each(collection_a,function (letter) {
+        if (!_.exist(collection_b,letter)) {
+            result[result.length] = letter;
         }
-    }
+    });
 
-    return array;
+    _.each(collection_b,function (letter) {
+        if (!_.exist(collection_a,letter)) {
+            result[result.length] = letter;
+        }
+    });
+
+    return result;
 }
 
 module.exports = choose_no_common_elements;
-
