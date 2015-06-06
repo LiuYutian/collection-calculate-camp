@@ -1,21 +1,9 @@
 'use strict';
 
+var _ = require('../../../myLodash.js');
+
 function median_to_letter(collection) {
-    for(var i = 0; i < collection.length; i++) {
-        for(var j = i; j < collection.length; j++) {
-            if(collection[i] > collection[i]){
-                var temp = collection[i];
-                collection[i] = collection[j];
-                collection[j] = temp;
-            }
-        }
-    }
-
-    if(collection % 2 === 0) {
-        return MapChar(parseInt((collection[collection.length/2]+collection[collection.length/2-1])/2));
-    }
-    return MapChar(parseInt(collection[parseInt(collection.length/2)]));
-
+    return MapChar(Math.ceil(_.median(collection)));
 }
 
 function MapChar(n) {

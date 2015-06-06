@@ -20,10 +20,6 @@ function compute_chain_median(collection) {
         }
     }
 
-    array = _.sort(array, function(a, b){
-        return a > b;
-    });
-
     return _.median(array);
 
 }
