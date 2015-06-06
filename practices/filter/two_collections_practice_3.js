@@ -1,15 +1,16 @@
 'use strict';
 
 function choose_divisible_integer(collection_a, collection_b) {
+    var _ = require('../../myLodash.js');
     var array = [];
 
-    for(var i = 0; i < collection_a.length; i++) {
-        for(var j = 0; j < collection_b.length; j++) {
-            if(collection_a[i] % collection_b[j] === 0) {
-                array.push(collection_a[i]);
+    _.each(collection_a, function(a){
+        _.each(collection_b, function(b){
+            if(a % b === 0){
+                array.push(a);
             }
-        }
-    }
+        });
+    });
 
     return array;
 }
