@@ -1,12 +1,11 @@
 'use strict';
-var single_element = function(collection){
-    var array = [];
 
-    for(var i = 1; i < collection.length; i++) {
-        if(i % 2 != 0) {
-            array.push(collection[i]);
-        }
-    }
+var _ = require('../../../../myLodash.js');
+
+var single_element = function(collection){
+    var array = _.filter(collection, function(n, i){
+        return i % 2 != 0;
+    });
 
     var objectArray = [];
 
@@ -18,22 +17,21 @@ var single_element = function(collection){
                 exist = true;
             }
         }
-
         if(!exist) {
             objectArray.push({
                 num : array[i],
                 count : 1
-            })
+            });
         }
     }
 
     var resultArray = [];
 
-    for(var i = 0; i < objectArray.length; i++) {
-        if(objectArray[i].count === 1){
-            resultArray.push(objectArray[i].num);
+    _.each(objectArray, function(n, i){
+        if(n.count === 1){
+            resultArray.push(n.num)
         }
-    }
+    });
 
     return resultArray;
 };
