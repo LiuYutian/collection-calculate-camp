@@ -24,11 +24,7 @@ function compute_chain_median(collection) {
         return a > b;
     });
 
-    if(array.length % 2 === 0) {
-        return (array[array.length/2-1]+array[array.length/2])/2;
-    }else{
-        return array[parseInt(array.length/2)];
-    }
+    return _.median(array);
 
 }
 
