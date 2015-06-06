@@ -4,11 +4,11 @@ function spilt_to_zero(number, interval) {
     var array = [];
     var length = (interval+"").length;
 
-    array[array.length] = number;
+    array.push(number);
 
     while(number>0) {
         number = Number((number-interval).toFixed(length));
-        array[array.length] = number;
+        array.push(number);
     }
 
     return array;
