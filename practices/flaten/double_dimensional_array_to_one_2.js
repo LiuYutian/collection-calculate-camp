@@ -1,36 +1,22 @@
 'use strict';
 
 function double_to_one(collection) {
-    var arrayUnidimensional = [];
-    var result = {};
-    var array = []
+    var _ = require('../../myLodash.js');
+    var result = [];
 
-    for(var i = 0; i < collection.length; i++) {
-        if(collection[i].length === undefined){
-            arrayUnidimensional[arrayUnidimensional.length] = collection[i];
+    _.each(collection, function(array){
+        if(array.length === undefined){
+            result.push(array);
+        }else{
+            _.each(array, function(n){
+                result.push(n);
+            });
         }
+    });
 
-        for(var j = 0; collection[i].length!=undefined && j < collection[i].length ; j++) {
-            arrayUnidimensional[arrayUnidimensional.length] = collection[i][j];
-        }
+    result = _.deWeight(result);
 
-    }
-
-    for(var i = 0; i < arrayUnidimensional.length; i++) {
-        var exist = false;
-
-        for(var j = 0; j < array.length; j++) {
-            if(arrayUnidimensional[i] === array[j]) {
-                exist = true;
-                break;
-            }
-        }
-        if(!exist) {
-            array[array.length] = arrayUnidimensional[i];
-        }
-    }
-
-    return array;
+    return result;
 }
 
 module.exports = double_to_one;
