@@ -1,14 +1,14 @@
 'use strict';
+
+var _ = require('../../../myLodash.js');
+
 var even_asc_odd_desc = function(collection){
-    for(var i = 0; i < collection.length; i++) {
-        for(var j = i; j < collection.length; j++) {
-            if(collection[i] > collection[j]){
-                var temp = collection[i];
-                collection[i] = collection[j];
-                collection[j] = temp;
-            }
-        }
-    }
+    collection = _.sort(collection, function(a, b){
+        return a > b;
+    });
+
+    var evenArray = [];
+    var oddArray = [];
 
     for(var i = 0; i < collection.length; i++) {
         if(collection[i] % 2 === 0) {
