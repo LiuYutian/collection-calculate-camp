@@ -1,5 +1,7 @@
 'use strict';
 
+var _ = require('../../myLodash.js');
+
 function compute_chain_median(collection) {
     var array = [];
     var num = "";
@@ -18,15 +20,9 @@ function compute_chain_median(collection) {
         }
     }
 
-    for(var i = 0; i < array.length; i++) {
-        for(var j = i; j < array.length; j++) {
-            if(array[i] > array[j]) {
-                array[i] = array[i] + array[j];
-                array[j] = array[i] - array[j];
-                array[i] = array[i] - array[j];
-            }
-        }
-    }
+    array = _.sort(array, function(a, b){
+        return a > b;
+    });
 
     if(array.length % 2 === 0) {
         return (array[array.length/2-1]+array[array.length/2])/2;
