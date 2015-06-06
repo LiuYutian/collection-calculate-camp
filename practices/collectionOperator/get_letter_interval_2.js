@@ -1,5 +1,7 @@
 'use strict';
 
+var _ = require('../../myLodash.js');
+
 function getChar(number) {
     if(number>26) {
         var carry = parseInt(number/26);
@@ -20,22 +22,13 @@ function getChar(number) {
 }
 
 function get_letter_interval_2(number_a, number_b) {
-    var array = [];
+    var array = _.range(number_a, number_b);
+    var result = [];
 
-    if(number_a < number_b) {
-        for(var i = number_a; i <= number_b; i++) {
-            array.push(getChar(i));
-        }
-        return array;
-    }
+    _.each(array, function(n){
+        result.push(getChar(n));
+    });
 
-    if(number_a > number_b) {
-        for(var i = number_a; i >= number_b; i--){
-            array.push(getChar(i));    }
-        return array;
-    }
-
-    array.push(getChar(number_a));
-    return array;
+    return result;
 }
 module.exports = get_letter_interval_2;
