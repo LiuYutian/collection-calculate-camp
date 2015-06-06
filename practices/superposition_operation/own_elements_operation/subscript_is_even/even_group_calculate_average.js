@@ -1,39 +1,24 @@
 'use strict';
+
+var _ = require('../../../../myLodash.js');
+
 var even_group_calculate_average = function(collection){
-    var array = [];
-    var resultArray = [];
+    var filterArray = _.filter(collection, function(n, i){
+        return n % 2 === 0 &&i % 2 != 0;
+    });
 
-    for(var i = 0; i < collection.length; i++) {
-        if(array[collection[i].toString().length-1] === undefined){
-            array[collection[i].toString().length-1] = new Array();
-        }
-        if(collection[i] % 2 === 0 && i % 2 != 0) {
-            array[collection[i].toString().length-1].push(collection[i]);
-        }
+    var result = [];
+    var temp = {};
+
+    _.each(filterArray, function(n){
+        temp[n.toString().length] = temp[n.toString().length] || [];
+        temp[n.toString().length].push(n);
+    });
+
+    for(var key in temp) {
+        result.push(_.sum(temp[key])/temp[key].length);
     }
 
-    for(var i = 0; i < array.length; i++) {
-        var sum = 0;
-
-        if(array[i] === undefined){
-            continue;
-        }
-
-        for(var j = 0;j < array[i].length; j++) {
-            sum += array[i][j];
-        }
-
-        if(array[i].length != 0){
-            resultArray.push(sum/array[i].length);
-        }
-    }
-
-    for(var i = 0; i < resultArray.length; i++){
-        if(resultArray[i] != 0){
-            return resultArray;
-        }
-    }
-
-    return [0];
+    return result.length === 0 ? [0] : result;
 };
 module.exports = even_group_calculate_average;
